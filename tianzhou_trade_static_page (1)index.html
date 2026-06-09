@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>天舟外贸｜中俄跨境贸易服务</title>
+  <meta name="description" content="天舟外贸专注于中俄外贸合作，提供产品采购、供应链整合、俄语商务沟通、清关物流与市场开拓服务。" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: rgba(255,255,255,0.08);
+      --card-strong: rgba(255,255,255,0.13);
+      --text: #f6f7fb;
+      --muted: #c7ccd8;
+      --gold: #d8b46a;
+      --red: #b61f2b;
+      --blue: #1d4f91;
+      --line: rgba(255,255,255,0.14);
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(0,0,0,0.28);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Inter", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(182,31,43,0.35), transparent 30%),
+        radial-gradient(circle at 85% 0%, rgba(29,79,145,0.42), transparent 28%),
+        linear-gradient(135deg, #07101f 0%, #11172b 55%, #080a13 100%);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 16, 31, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(216,180,106,0.95), rgba(255,255,255,0.85)),
+        linear-gradient(45deg, var(--red), var(--blue));
+      color: #0b1020;
+      box-shadow: 0 10px 30px rgba(216,180,106,0.28);
+      font-weight: 900;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      margin-top: -2px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .menu a:hover { color: var(--gold); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--red), #d84a51);
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(182,31,43,0.32);
+      border: 0;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 48px rgba(182,31,43,0.42);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 88px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid rgba(216,180,106,0.35);
+      background: rgba(216,180,106,0.1);
+      color: #f1d79b;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 18px;
+      margin: 24px 0 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 650px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .visual {
+      position: relative;
+      min-height: 520px;
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04)),
+        url("data:image/svg+xml,%3Csvg width='800' height='800' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.09'%3E%3Cpath d='M0 160 C180 80 320 240 500 130 C620 60 710 120 800 70'/%3E%3Cpath d='M0 360 C160 280 350 420 520 300 C650 210 720 270 800 220'/%3E%3Cpath d='M0 560 C200 480 320 630 520 500 C660 410 720 470 800 420'/%3E%3C/g%3E%3C/svg%3E");
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .route-card {
+      position: absolute;
+      left: 36px;
+      right: 36px;
+      top: 42px;
+      padding: 26px;
+      border-radius: 24px;
+      background: rgba(5, 9, 20, 0.72);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(16px);
+    }
+
+    .route {
+      margin: 26px 0;
+      height: 110px;
+      position: relative;
+    }
+
+    .route-line {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      top: 50%;
+      border-top: 2px dashed rgba(216,180,106,0.65);
+    }
+
+    .city {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 136px;
+      padding: 16px 12px;
+      border-radius: 18px;
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .city:first-child { left: 0; }
+    .city:last-child { right: 0; }
+
+    .city strong { display:block; font-size: 18px; }
+    .city span { color: var(--muted); font-size: 12px; }
+
+    .plane {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 58px;
+      height: 58px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #fff0bb);
+      color: #0b1020;
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      box-shadow: 0 16px 36px rgba(216,180,106,0.32);
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .mini-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+    }
+
+    .mini-item b {
+      color: #fff;
+      display: block;
+    }
+
+    .section {
+      padding: 74px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.16);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(216,180,106,0.12);
+      color: var(--gold);
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .about-box {
+      padding: 34px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, rgba(216,180,106,0.16), rgba(255,255,255,0.06));
+      border: 1px solid rgba(216,180,106,0.22);
+    }
+
+    .about-box h2 { margin-top: 0; font-size: 38px; line-height: 1.18; }
+    .about-box p { color: var(--muted); }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--line);
+    }
+
+    .step-num {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background: rgba(182,31,43,0.18);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .step h3 { margin: 0 0 4px; }
+    .step p { margin: 0; color: var(--muted); }
+
+    .markets {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .market {
+      padding: 22px;
+      min-height: 150px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--line);
+    }
+
+    .market strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .market span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta {
+      padding: 52px;
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(182,31,43,0.72), rgba(29,79,145,0.65)),
+        linear-gradient(135deg, #171d34, #0d1325);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      margin: 0 0 10px;
+      font-size: 36px;
+      line-height: 1.2;
+    }
+
+    .cta p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .contact-card {
+      padding: 26px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+    }
+
+    .contact-card h3 { margin-top: 0; }
+    .contact-card p { color: var(--muted); margin-bottom: 8px; }
+
+    footer {
+      padding: 32px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      color: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 8px 10px;
+      font-size: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .mobile-menu-btn { display: block; }
+      .menu {
+        display: none;
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 76px;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+        border-radius: 20px;
+        background: rgba(7, 16, 31, 0.96);
+        border: 1px solid var(--line);
+      }
+      .menu.open { display: flex; }
+      .hero-grid, .split, .cta, .contact {
+        grid-template-columns: 1fr;
+      }
+      .visual { min-height: 430px; }
+      .cards { grid-template-columns: 1fr; }
+      .markets { grid-template-columns: repeat(2, 1fr); }
+      .hero-stats { grid-template-columns: 1fr; }
+      .section-title { display: block; }
+      .section-title p { margin-top: 12px; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 26px, 1180px); }
+      .hero { padding-top: 56px; }
+      .route-card { left: 18px; right: 18px; padding: 18px; }
+      .city { width: 112px; }
+      .route-line { left: 52px; right: 52px; }
+      .markets { grid-template-columns: 1fr; }
+      .cta { padding: 30px; }
+      .hero h1 { font-size: 40px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand" aria-label="天舟外贸首页">
+        <span class="brand-mark">TZ</span>
+        <span>
+          天舟外贸
+          <small>CHINA · RUSSIA TRADE</small>
+        </span>
+      </a>
+
+      <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="打开菜单">☰</button>
+
+      <nav class="menu" id="menu">
+        <a href="#about">公司介绍</a>
+        <a href="#services">业务服务</a>
+        <a href="#markets">主营方向</a>
+        <a href="#process">合作流程</a>
+        <a href="#contact">联系我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">中俄双向贸易 · 北京 × 莫斯科</div>
+          <h1>连接中国制造与<span>俄罗斯市场</span>的专业外贸伙伴</h1>
+          <p>
+            天舟外贸是一家专注于中俄外贸合作的贸易企业。我们以北京国内公司与莫斯科国外公司为双支点，
+            为客户提供产品采购、供应链整合、俄语商务沟通、物流清关协同与俄罗斯市场开拓支持。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">获取合作方案</a>
+            <a class="btn btn-ghost" href="#services">查看业务范围</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>北京</strong>
+              <span>中国供应链与出口服务中心</span>
+            </div>
+            <div class="stat">
+              <strong>莫斯科</strong>
+              <span>俄罗斯市场与客户服务中心</span>
+            </div>
+            <div class="stat">
+              <strong>中俄双语</strong>
+              <span>降低沟通成本，提高合作效率</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual" aria-label="北京到莫斯科贸易路线示意">
+          <div class="route-card">
+            <div class="eyebrow" style="margin-bottom:0;">TRADE ROUTE</div>
+            <div class="route">
+              <div class="route-line"></div>
+              <div class="city">
+                <strong>北京</strong>
+                <span>供应链整合</span>
+              </div>
+              <div class="plane">✦</div>
+              <div class="city">
+                <strong>莫斯科</strong>
+                <span>市场落地服务</span>
+              </div>
+            </div>
+
+            <div class="mini-list">
+              <div class="mini-item">
+                <span>01</span>
+                <div><b>精选中国供应商</b>产品筛选、价格沟通、样品确认与质量跟进。</div>
+              </div>
+              <div class="mini-item">
+                <span>02</span>
+                <div><b>对接俄罗斯客户</b>俄语沟通、报价文件、合同协助与客户维护。</div>
+              </div>
+              <div class="mini-item">
+                <span>03</span>
+                <div><b>交付全流程协同</b>物流、清关、付款、售后等环节协同推进。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container split">
+        <div class="about-box">
+          <h2>我们是谁</h2>
+          <p>
+            天舟外贸专注于中国与俄罗斯之间的贸易合作，致力于帮助中国企业更高效地进入俄罗斯市场，
+            也帮助俄罗斯客户更稳定地获得优质中国货源。
+          </p>
+          <p>
+            我们不只是简单转发产品目录，而是从客户需求、产品匹配、价格谈判、供应商筛选到后续交付，
+            提供更贴近实际交易的外贸服务。
+          </p>
+          <a class="btn btn-primary" href="#contact">开始沟通需求</a>
+        </div>
+
+        <div class="timeline">
+          <div class="step">
+            <div class="step-num">中</div>
+            <div>
+              <h3>中国端：供应链与产品资源</h3>
+              <p>位于北京，面向国内工厂、供应商与出口资源，负责产品筛选、价格整理、资料制作与出口协同。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">俄</div>
+            <div>
+              <h3>俄罗斯端：客户沟通与市场服务</h3>
+              <p>位于莫斯科，面向俄罗斯客户与合作方，负责本地沟通、需求反馈、商务跟进与市场信息收集。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">贸</div>
+            <div>
+              <h3>中俄双向：让交易更顺畅</h3>
+              <p>通过双语沟通与两地协同，减少跨境贸易中的信息差、语言差与执行误差。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>核心业务服务</h2>
+          <p>围绕中俄贸易的真实成交场景，提供从前期咨询到后期交付的全链路协同服务。</p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="icon">品</div>
+            <h3>产品采购与供应商筛选</h3>
+            <p>根据俄罗斯客户需求，匹配中国工厂与产品资源，进行初步价格、规格、交期和资质筛选。</p>
+          </div>
+          <div class="card">
+            <div class="icon">译</div>
+            <h3>俄语商务资料制作</h3>
+            <p>协助制作俄语产品目录、报价单、公司介绍、产品说明和客户沟通文件，提升专业形象。</p>
+          </div>
+          <div class="card">
+            <div class="icon">合</div>
+            <h3>商务谈判与订单协同</h3>
+            <p>协助买卖双方进行需求确认、价格沟通、合同条款梳理、付款节点与交付安排。</p>
+          </div>
+          <div class="card">
+            <div class="icon">链</div>
+            <h3>供应链整合</h3>
+            <p>整合多品类、多供应商资源，适合俄罗斯批发商、工程商、经销商和项目采购客户。</p>
+          </div>
+          <div class="card">
+            <div class="icon">运</div>
+            <h3>物流与清关协同</h3>
+            <p>对接中俄运输、仓储、清关等合作资源，协助客户选择更合适的运输方案。</p>
+          </div>
+          <div class="card">
+            <div class="icon">市</div>
+            <h3>俄罗斯市场开发支持</h3>
+            <p>为中国企业提供俄罗斯客户开发、市场信息整理、线上推广和客户跟进支持。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="markets">
+      <div class="container">
+        <div class="section-title">
+          <h2>重点合作方向</h2>
+          <p>以下板块可根据公司真实主营产品继续替换和细化。</p>
+        </div>
+
+        <div class="markets">
+          <div class="market">
+            <strong>机械设备</strong>
+            <span>机床、CNC刀具、工业配件、加工设备等。</span>
+          </div>
+          <div class="market">
+            <strong>建材与工程材料</strong>
+            <span>暖通配件、管道产品、保温材料、玄武岩纤维制品等。</span>
+          </div>
+          <div class="market">
+            <strong>汽车与工业用品</strong>
+            <span>汽配、五金工具、耗材、工业维护用品等。</span>
+          </div>
+          <div class="market">
+            <strong>消费品与日用品</strong>
+            <span>家居用品、轻工产品、包装用品及定制产品。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-title">
+          <h2>合作流程</h2>
+          <p>用清晰的流程降低跨境合作的不确定性，让客户知道每一步该做什么。</p>
+        </div>
+
+        <div class="timeline">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div>
+              <h3>提交需求</h3>
+              <p>客户提供产品名称、参数、数量、用途、目标价格或参考图片。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div>
+              <h3>匹配资源</h3>
+              <p>我们根据需求筛选供应商，整理产品方案、报价、交期与可合作条件。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div>
+              <h3>确认样品与订单</h3>
+              <p>协助确认样品、规格、包装、付款方式、合同条款和交付计划。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <div>
+              <h3>生产跟进与交付</h3>
+              <p>跟进生产、验货、物流、清关及售后反馈，保证交易闭环。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>有中俄贸易需求？让我们先帮你梳理方案。</h2>
+            <p>无论你是中国供应商、俄罗斯采购商，还是正在寻找跨境贸易合作伙伴，都可以先发送产品和需求。</p>
+          </div>
+          <a class="btn btn-primary" href="#contact">联系我们</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>联系我们</h2>
+          <p>以下为占位信息，替换成你的真实电话、邮箱、Telegram、WhatsApp、微信或公司地址即可。</p>
+        </div>
+
+        <div class="contact">
+          <div class="contact-card">
+            <h3>中国公司｜北京</h3>
+            <p><strong>地址：</strong>北京市｜请填写具体办公地址</p>
+            <p><strong>电话：</strong>+86 请填写手机号</p>
+            <p><strong>邮箱：</strong>info@tianzhou-trade.com</p>
+            <p><strong>微信：</strong>请填写微信号</p>
+          </div>
+
+          <div class="contact-card">
+            <h3>俄罗斯公司｜莫斯科</h3>
+            <p><strong>Адрес：</strong>Москва｜укажите адрес офиса</p>
+            <p><strong>Телефон：</strong>+7 请填写电话</p>
+            <p><strong>Email：</strong>ru@tianzhou-trade.com</p>
+            <p><strong>Telegram：</strong>@tianzhou_trade</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 天舟外贸 Tianzhou Trade. All rights reserved.</span>
+      <span>专注中俄外贸合作｜北京 × 莫斯科</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("open");
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", function(e) {
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          document.getElementById("menu").classList.remove("open");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
